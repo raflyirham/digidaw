@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import bcrypt from 'bcryptjs'
 import { cookies } from 'next/headers'
+import { createAdminToken } from '@/lib/auth'
 
 export async function POST(req: NextRequest) {
   try {
@@ -27,9 +28,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Username atau password salah' }, { status: 401 })
     }
 
+    // Generate JWT token
+    const token = await createAdminToken({ id: admin.id, username: admin.username })
+
     // Set auth cookie
     const cookieStore = await cookies()
-    cookieStore.set('admin-token', admin.id, {
+    cookieStore.set('admin-token', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',

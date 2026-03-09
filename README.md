@@ -12,7 +12,7 @@ Digidaw is a modern, full-stack e-commerce web application designed specifically
   - WhatsApp integration for seamless order confirmations.
   - Fully localized in Indonesian.
 - **Admin Dashboard:**
-  - Secure authentication and password management.
+  - Secure JWT authentication for UI and API routes, plus password management.
   - Product management with Supabase Storage image uploads.
   - Order tracking and management.
   - Dynamic site settings configuration (Hero, Features, Contact, etc.).
@@ -24,7 +24,7 @@ Digidaw is a modern, full-stack e-commerce web application designed specifically
 - **UI & Styling:** React 19, Tailwind CSS v4, Lucide React icons
 - **State Management:** Zustand, TanStack Query (React Query)
 - **Forms & Validation:** React Hook Form, Zod
-- **Database & Backend:** Supabase (PostgreSQL, Auth, Storage)
+- **Database & Backend:** Supabase (PostgreSQL, Auth, Storage), JWT (jose)
 
 ## Getting Started
 
@@ -52,7 +52,7 @@ Digidaw is a modern, full-stack e-commerce web application designed specifically
    ```bash
    cp env.example .env.local
    ```
-   Add your `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
+   Add your `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, and `ADMIN_JWT_SECRET`.
 
 4. **Set up Supabase Database:**
    Execute the `supabase/database.sql` script in your Supabase project's SQL Editor to run the migrations, create the schema, enable Row Level Security (RLS), and insert initial seed data.

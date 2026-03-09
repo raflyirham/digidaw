@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - WhatsApp integration for checkout routing.
 - Initial database configuration (`database.sql`).
 - Project disclaimer in README.
+- JWT-based robust authentication for the Admin panel.
 
 ### Changed
 - Refactored layout for Next.js Server/Client component separation.
@@ -21,3 +22,4 @@ All notable changes to this project will be documented in this file.
 - Cart item count hydration errors.
 - Async Component layout errors.
 - Admin authentication and UI layout alignment issues.
+- Secured previously exposed admin API routes (`/api/admin/*`) with JWT middleware.

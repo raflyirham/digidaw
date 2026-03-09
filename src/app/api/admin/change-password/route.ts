@@ -2,12 +2,18 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { cookies } from 'next/headers'
 import bcrypt from 'bcryptjs'
+import { verifyAdminToken } from '@/lib/auth'
 
 export async function POST(req: NextRequest) {
   try {
     const cookieStore = await cookies()
-    const adminId = cookieStore.get('admin-token')?.value
-    if (!adminId) return NextResponse.json({ error: 'Tidak terautentikasi' }, { status: 401 })
+    const token = cookieStore.get('admin-token')?.value
+    if (!token) return NextResponse.json({ error: 'Tidak terautentikasi' }, { status: 401 })
+
+    const payload = await verifyAdminToken(token)
+    if (!payload) return NextResponse.json({ error: 'Sesi tidak valid' }, { status: 401 })
+
+    const adminId = payload.id
 
     const { current_password, new_password } = await req.json()
     if (!current_password || !new_password) {
