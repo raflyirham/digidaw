@@ -39,3 +39,22 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE/Editor directories
+.vscode/
+.cursor/
+.windsurf/
+.trae/
+
+# AI Agent directories
+.agent/
+.agents/
+.codex/
+.gemini/
+.goose/
+.kiro/
+.opencode/
+
+# Generated skills in any dot directory
+.*/skills/
+.claude/
