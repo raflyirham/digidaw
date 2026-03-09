@@ -1,7 +1,5 @@
 # Digidaw - Digital Products E-Commerce
 
-> **Disclaimer:** This project is for fun and learning purposes only.
-
 Digidaw is a modern, full-stack e-commerce web application designed specifically for selling digital products. Built with a sleek "High-End Studio Dark Theme" aesthetic featuring neon green accents, it offers a premium user experience from browsing to checkout.
 
 ## Features
